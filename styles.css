@@ -172,10 +172,6 @@ ul {
   left: 13px;
 }
 
-.big-icon:hover {
-  transform: scale(1.2);
-}
-
 .small-icon {
   color: whitesmoke;
   width: 85px;
