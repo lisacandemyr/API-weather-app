@@ -3,6 +3,7 @@ let currentTime = new Date();
 
 // Format the date
 function formatDate(date) {
+  // Extract hours and minutes from the current time
   let currentHours = currentTime.getHours();
   if (currentHours < 10) {
     currentHours = `0${currentHours}`;
@@ -12,6 +13,7 @@ function formatDate(date) {
     currentMinutes = `0${currentMinutes}`;
   }
 
+  // Define arrays for days, dates, and months
   let currentDay = currentTime.getDay();
   let currentDays = [
     "Sunday",
@@ -75,9 +77,11 @@ function formatDate(date) {
     "December",
   ];
 
+  // Construct the formatted date string
   return `${currentDays[currentDay]} the ${currentDates[currentDate]} of ${currentMonths[currentMonth]} | ${currentHours}:${currentMinutes}`;
 }
 
+// Format the day of the week for the weekly forecast
 function formatDay(timestamp) {
   let futureDate = new Date(timestamp * 1000);
   let futureDay = futureDate.getDay();
@@ -94,9 +98,13 @@ function formatDay(timestamp) {
   return futureDays[futureDay];
 }
 
+// Update the date element with the formatted date
+let dateElement = document.querySelector("#date");
+dateElement.innerHTML = formatDate(currentTime);
+
+// Display the weekly weather forecast
 function displayWeatherForecast(response) {
   let weeklyForecast = response.data.daily;
-
   let weatherForecastElement = document.querySelector("#weather-forecast");
   let weatherForecastHTML = `<div class="row" id="forecast">`;
 
@@ -113,7 +121,8 @@ function displayWeatherForecast(response) {
               forecastDay.condition.icon
             }.png"
             class="small-icon"
-            id="small-icon" alt="small-weather-icon"
+            id="small-icon"
+            alt="small-weather-icon"
           />
           <br />
           <small class="temp-day">${Math.round(
@@ -122,21 +131,17 @@ function displayWeatherForecast(response) {
         </div>`;
     }
   });
-  weatherForecastHTML = weatherForecastHTML + `</div`;
+  weatherForecastHTML = weatherForecastHTML + `</div>`;
   weatherForecastElement.innerHTML = weatherForecastHTML;
 }
-
+// Get the weekly weather forecast
 function getWeatherForecast(coordinates) {
   let apiKey = "344027118o9t0bba5e252d5b7747161f";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherForecast);
 }
 
-// Update the date element with the formatted date
-let dateElement = document.querySelector("#date");
-dateElement.innerHTML = formatDate(currentTime);
-
-// Display weather information
+// Display current weather and weekly forecast
 function displayWeather(response) {
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -159,6 +164,7 @@ function displayWeather(response) {
   // Store the temperature in Celsius for unit conversion
   celsiusTemperature = response.data.temperature.current;
 
+  // Get the weekly weather forecast
   getWeatherForecast(response.data.coordinates);
 }
 
@@ -203,6 +209,14 @@ function displayFahrenheit(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+  let weeklyTemperatureFahrenheit = document.querySelectorAll(".temp-day");
+
+  weeklyTemperatureFahrenheit.forEach((element) => {
+    let celsiusValue = parseInt(element.textContent);
+    let fahrenheitValue = (celsiusValue * 9) / 5 + 32;
+    element.innerHTML = `${Math.round(fahrenheitValue)}°F`;
+  });
 }
 
 // Convert temperature to Celsius
@@ -210,6 +224,14 @@ function displayCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let weeklyTemperatureCelsius = document.querySelectorAll(".temp-day");
+
+  weeklyTemperatureCelsius.forEach((element) => {
+    let fahrenheitValue = parseInt(element.textContent);
+    let celsiusValue = ((fahrenheitValue - 32) * 5) / 9;
+    element.innerHTML = `${Math.round(celsiusValue)}°C`;
+  });
 }
 
 let celsiusTemperature = null;
