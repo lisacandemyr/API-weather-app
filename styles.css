@@ -112,6 +112,7 @@ ul {
   margin-left: 250px;
   padding: 6px 10px;
   position: absolute;
+  text-transform: lowercase;
 }
 
 .search-city:hover {
