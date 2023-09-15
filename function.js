@@ -78,6 +78,32 @@ function formatDate(date) {
   return `${currentDays[currentDay]} the ${currentDates[currentDate]} of ${currentMonths[currentMonth]} | ${currentHours}:${currentMinutes}`;
 }
 
+function displayWeatherForecast() {
+  let weatherForecastElement = document.querySelector("#weather-forecast");
+  let weatherForecastHTML = `<div class="row" id="forecast">`;
+  let forecastDays = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
+  forecastDays.forEach(function (day) {
+    weatherForecastHTML =
+      weatherForecastHTML +
+      `
+        <div class="col">
+          <small class="day">${day}</small>
+          <br />
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+            class="small-icon"
+            id="small-icon" alt="small-weather-icon"
+          />
+          <br />
+          <small class="temp-day">-5°C</small>
+        </div>`;
+  });
+  weatherForecastHTML = weatherForecastHTML + `</div`;
+  weatherForecastElement.innerHTML = weatherForecastHTML;
+}
+
+displayWeatherForecast();
+
 // Update the date element with the formatted date
 let dateElement = document.querySelector("#date");
 dateElement.innerHTML = formatDate(currentTime);
