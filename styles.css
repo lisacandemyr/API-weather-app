@@ -50,6 +50,10 @@ ul {
   text-align: left;
 }
 
+.weather-forecast {
+  margin: 0;
+}
+
 .description {
   color: whitesmoke;
   font-size: 20px;
@@ -186,7 +190,7 @@ ul {
   font-weight: 300;
   margin-top: 5px;
   position: relative;
-  top: 30px;
+  top: -50px;
   text-align: center;
 }
 
