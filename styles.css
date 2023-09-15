@@ -64,13 +64,18 @@ ul {
   font-family: "Grenze Gotisch", cursive;
 }
 
+.day {
+  position: relative;
+  top: -10px;
+}
+
 .temp-day {
   color: whitesmoke;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   position: relative;
-  top: -50px;
+  top: -40px;
 }
 
 .container {
@@ -169,7 +174,7 @@ ul {
 
 .small-icon {
   color: whitesmoke;
-  font-size: 45px;
+  width: 85px;
   margin: 0;
   position: relative;
   top: -25px;

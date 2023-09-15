@@ -78,26 +78,49 @@ function formatDate(date) {
   return `${currentDays[currentDay]} the ${currentDates[currentDate]} of ${currentMonths[currentMonth]} | ${currentHours}:${currentMinutes}`;
 }
 
+function formatDay(timestamp) {
+  let futureDate = new Date(timestamp * 1000);
+  let futureDay = futureDate.getDay();
+  let futureDays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  return futureDays[futureDay];
+}
+
 function displayWeatherForecast(response) {
-  console.log(response.data.daily);
+  let weeklyForecast = response.data.daily;
+
   let weatherForecastElement = document.querySelector("#weather-forecast");
   let weatherForecastHTML = `<div class="row" id="forecast">`;
-  let forecastDays = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
-  forecastDays.forEach(function (day) {
-    weatherForecastHTML =
-      weatherForecastHTML +
-      `
+
+  weeklyForecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      weatherForecastHTML =
+        weatherForecastHTML +
+        `
         <div class="col">
-          <small class="day">${day}</small>
+          <small class="day">${formatDay(forecastDay.time)}</small>
           <br />
           <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+              forecastDay.condition.icon
+            }.png"
             class="small-icon"
             id="small-icon" alt="small-weather-icon"
           />
           <br />
-          <small class="temp-day">-5°C</small>
+          <small class="temp-day">${Math.round(
+            forecastDay.temperature.day
+          )}°<span id="forecast-unit">C</span></small>
         </div>`;
+    }
   });
   weatherForecastHTML = weatherForecastHTML + `</div`;
   weatherForecastElement.innerHTML = weatherForecastHTML;
