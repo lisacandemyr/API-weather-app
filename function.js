@@ -78,7 +78,8 @@ function formatDate(date) {
   return `${currentDays[currentDay]} the ${currentDates[currentDate]} of ${currentMonths[currentMonth]} | ${currentHours}:${currentMinutes}`;
 }
 
-function displayWeatherForecast() {
+function displayWeatherForecast(response) {
+  console.log(response.data.daily);
   let weatherForecastElement = document.querySelector("#weather-forecast");
   let weatherForecastHTML = `<div class="row" id="forecast">`;
   let forecastDays = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
@@ -102,7 +103,11 @@ function displayWeatherForecast() {
   weatherForecastElement.innerHTML = weatherForecastHTML;
 }
 
-displayWeatherForecast();
+function getWeatherForecast(coordinates) {
+  let apiKey = "344027118o9t0bba5e252d5b7747161f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherForecast);
+}
 
 // Update the date element with the formatted date
 let dateElement = document.querySelector("#date");
@@ -130,6 +135,8 @@ function displayWeather(response) {
 
   // Store the temperature in Celsius for unit conversion
   celsiusTemperature = response.data.temperature.current;
+
+  getWeatherForecast(response.data.coordinates);
 }
 
 // Search for a city's weather by name
