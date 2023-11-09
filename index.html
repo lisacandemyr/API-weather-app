@@ -4,38 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-
-    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Font Awesome Icons -->
     <script
       src="https://kit.fontawesome.com/3fcf0af6ca.js"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Axios Library -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
-
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <!-- Search Form -->
       <form class="search-bar" action="submit" id="search-form">
         <input
           class="form-control"
@@ -49,25 +37,34 @@
           value="Search"
           id="search-button"
         />
-
-        <input
-          class="current-location"
+        <i
+          class="fa-solid fa-location-dot current-location"
           type="submit"
           value="Current Location"
           id="current-location-button"
-        />
+        >
+        </i>
       </form>
-
-      <!-- Weather Information -->
       <header>
-        <h1 class="city" id="city"></h1>
-        <h2 class="date" id="date"></h2>
-        <p class="description" id="description"></p>
+        <div>
+          <h1 class="city" id="city"></h1>
+          <h2 class="date" id="date"></h2>
+          <p class="description" id="description"></p>
+        </div>
+        <div>
+          <ul>
+            <li class="humidity">Humidity: <span id="humidity"></span>%</li>
+            <li class="wind">Wind: <span id="wind"></span>km/h</li>
+          </ul>
+        </div>
+      </header>
+      <section>
         <h3>
           <img
             src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
             class="big-icon"
-            id="big-icon" alt="big-weather-icon"
+            id="big-icon"
+            alt="big-weather-icon"
           />
           <span class="temperature" id="temperature"></span>
           <span class="units" id="units">
@@ -76,40 +73,41 @@
             <a href="#" id="fahrenheit-link">°F</a>
           </span>
         </h3>
-      </header>
-
-      <!-- Additional Weather Information -->
-      <ul>
-        <li class="humidity">Humidity: <span id="humidity"></span>%</li>
-        <li class="wind">Wind: <span id="wind"></span>km/h</li>
-      </ul>
-
-      <!-- Weather Forecast -->
-      <div class="weather-forecast" id="weather-forecast">
-      <div class="row">
-        <div class="col">
-          <small class="day">Monday</small>
-          <br />
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
-            class="small-icon"
-            id="small-icon" alt="small-weather-icon"
-          />
-          <br />
-          <small class="temp-day" id="temp-day"><span id="forecast-unit"></span></small>
+      </section>
+      <section class="weather-forecast" id="weather-forecast">
+        <div class="row">
+          <div class="col">
+            <small class="day">Monday</small>
+            <br />
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+              class="small-icon"
+              id="small-icon"
+              alt="small-weather-icon"
+            />
+            <br />
+            <small class="temp-day" id="temp-day"
+              ><span id="forecast-unit"></span
+            ></small>
+          </div>
         </div>
-        </div>
-        </div>
-    <p class="credit">
-      <a class="credit-link" href="https://github.com/lisacandemyr/API-weather-app" target="_blank">
-        Open-source code</a>
-      by <strong>Lisa Candemyr</strong> hosted on
-      <a class="credit-link" href="https://www.netlify.com" target="_blank"
-        >Netlify</a
-      >
-    </p>
-
-    <!-- JavaScript Functions -->
+      </section>
+    </div>
+    <footer>
+      <p>
+        <a
+          class="credit-link"
+          href="https://github.com/lisacandemyr/API-weather-app"
+          target="_blank"
+        >
+          Open-source code</a
+        >
+        by <strong>Lisa Candemyr</strong> hosted on
+        <a class="credit-link" href="https://www.netlify.com" target="_blank"
+          >Netlify</a
+        >
+      </p>
+    </footer>
     <script src="function.js"></script>
   </body>
 </html>

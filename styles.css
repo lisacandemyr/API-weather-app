@@ -1,161 +1,118 @@
+:root {
+  --primary-color: #9bbfc8;
+  --primary-color-dark: #13547a;
+  --primary-color-light: whitesmoke;
+  --primary-font-family: "Grenze Gotisch", cursive;
+  --box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
 body {
-  background: whitesmoke;
-  font-family: "Grenze Gotisch", cursive;
-  margin: 20px;
+  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  font-family: var(--primary-font-family);
+  margin: 100px;
+  overflow: hidden;
   text-transform: lowercase;
-}
-
-h1 {
-  color: whitesmoke;
-  font-size: 50px;
-  font-weight: 900;
-  margin-top: 10px;
-  margin-left: 5px;
-}
-
-h2 {
-  color: whitesmoke;
-  font-size: 28px;
-  font-weight: 300;
-  margin-top: -15px;
-  margin-left: 10px;
-}
-
-h3 {
-  color: whitesmoke;
-  font-family: "Oswald", sans-serif;
-  font-size: 60px;
-  font-weight: 500;
-  position: relative;
-  top: 45px;
-  left: 5px;
-  text-transform: uppercase;
-}
-
-ul {
-  background: rgba(228, 216, 198, 0.4);
-  border: 1px solid rgba(228, 216, 198, 0.1);
-  border-radius: 6px 6px 6px 6px;
-  color: whitesmoke;
-  display: block;
-  font-size: 17px;
-  font-weight: 300;
-  list-style: none;
-  max-width: 112px;
-  margin: 0;
-  padding: 6px 10px;
-  position: relative;
-  top: -230px;
-  left: 520px;
-  text-align: left;
-}
-
-.weather-forecast {
-  margin: 0;
-}
-
-.description {
-  color: whitesmoke;
-  font-size: 20px;
-  font-weight: 300;
-  position: relative;
-  left: 117px;
-  top: 70px;
-}
-
-.date {
-  color: whitesmoke;
-  font-family: "Grenze Gotisch", cursive;
-}
-
-.day {
-  position: relative;
-  top: -10px;
-}
-
-.temp-day {
-  color: whitesmoke;
-  font-family: "Oswald", sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-  position: relative;
-  top: -40px;
 }
 
 .container {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/096/260/original/romantic_renais_0_%289%29.png?1694189966");
-  background-size: cover;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  padding: 35px;
+  background: rgba(245, 245, 245, 0.5);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
   max-width: 700px;
-  max-height: 475px;
+  padding: 35px;
+}
+
+.search-bar {
+  align-items: center;
+  display: flex;
 }
 
 .form-control {
-  background: whitesmoke;
-  border-radius: 6px 0 0 6px;
-  display: inline-block;
-  margin-top: 5px;
-  max-width: 250px;
-  position: absolute;
+  background: var(--primary-color-light);
+  border-radius: 5px 0 0 5px;
+  min-width: 150px;
 }
 
 .search-city {
-  background: #cb412e;
-  border: 1px solid #cb412e;
-  border-radius: 0 6px 6px 0;
-  color: whitesmoke;
-  margin-top: 5px;
-  margin-left: 250px;
+  background: var(--primary-color-dark);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: var(--primary-color-light);
   padding: 6px 10px;
-  position: absolute;
   text-transform: lowercase;
-}
-
-.search-city:hover {
-  background: whitesmoke;
-  border: 1px solid whitesmoke;
-  color: #cb412e;
-  transition: all 200ms ease-in-out;
 }
 
 .current-location {
-  background: rgba(203, 65, 46, 0.4);
-  border: 1px solid rgba(203, 65, 46, 0.1);
-  border-radius: 6px 6px 6px 6px;
-  color: whitesmoke;
-  padding: 6px 10px;
-  position: relative;
-  top: 5px;
-  left: 520px;
-  text-transform: lowercase;
+  background: var(--primary-color-dark);
+  border: none;
+  border-radius: 50%;
+  color: var(--primary-color-light);
+  font-size: 20px;
+  margin-left: 300px;
+  padding: 10px 12px;
 }
 
+.search-city:hover,
 .current-location:hover {
-  background: #cb412e;
-  color: whitesmoke;
-  transition: all 200ms ease-in-out;
+  background: var(--primary-color-light);
+  border: none;
+  color: var(--primary-color-dark);
+  transition: all 500ms ease-in-out;
 }
 
-.current-location:focus {
-  background: #cb412e;
-  color: whitesmoke;
+header {
+  align-items: center;
+  display: flex;
 }
 
-.row {
-  color: whitesmoke;
-  margin: 0;
-  position: relative;
-  top: -40px;
+h1 {
+  color: var(--primary-color-light);
+  font-size: 50px;
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+h2 {
+  color: var(--primary-color-light);
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 15px;
+}
+
+.description {
+  color: var(--primary-color-light);
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+ul {
+  background: rgba(245, 245, 245, 0.2);
+  border-radius: 5px;
+  color: var(--primary-color-light);
+  font-size: 20px;
+  font-weight: 300;
+  list-style: none;
+  margin-left: 75px;
+  padding: 15px;
   text-align: center;
+  width: 150px;
 }
 
-.col:hover {
-  transform: scale(1.2);
-  transition: all 300ms ease-in-out;
+h3 {
+  color: var(--primary-color-light);
+  font-family: "Oswald", sans-serif;
+  font-size: 60px;
+  font-weight: 500;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.big-icon {
+  width: 80px;
+  position: relative;
+  top: -5px;
+  left: 13px;
 }
 
 .divider {
@@ -165,40 +122,44 @@ ul {
   top: -2px;
 }
 
-.big-icon {
-  color: whitesmoke;
-  width: 95px;
-  position: relative;
-  top: -5px;
-  left: 13px;
+.weather-forecast {
+  color: var(--primary-color-light);
+  text-align: center;
+}
+
+.day {
+  font-size: 15px;
+  line-height: 0;
 }
 
 .small-icon {
-  color: whitesmoke;
-  width: 85px;
-  margin: 0;
-  position: relative;
-  top: -25px;
+  width: 80px;
 }
 
-.credit {
-  color: #4c3010;
+.temp-day {
+  color: var(--primary-color-light);
+  font-family: "Oswald", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+footer {
+  color: var(--primary-color);
   font-size: 20px;
   font-weight: 300;
-  margin-top: 5px;
-  position: relative;
-  top: -50px;
+  margin-top: 10px;
   text-align: center;
 }
 
 .credit-link {
-  color: #cb412e;
+  color: var(--primary-color-light);
   text-decoration: none;
 }
 
 .credit-link:hover {
-  color: #bab6a2;
-  transition: all 200ms ease-in-out;
+  color: var(--primary-color-dark);
+  transition: all 500ms ease-in-out;
 }
 
 #celsius-link,
@@ -207,23 +168,18 @@ ul {
   font-size: 20px;
   font-weight: 500;
   position: relative;
-  top: -30px;
+  top: -33px;
   text-align: center;
   text-decoration: none;
 }
 
 #celsius-link:hover,
 #fahrenheit-link:hover {
-  color: #cb412e;
+  color: var(--primary-color-dark);
+  transition: all 500ms ease-in-out;
 }
 
 #celsius-link:focus,
 #fahrenheit-link:focus {
-  color: #cb412e;
-  font-size: 20px;
-  font-weight: 500;
-  position: relative;
-  top: -30px;
-  text-align: center;
-  text-decoration: none;
+  color: var(--primary-color-dark);
 }
