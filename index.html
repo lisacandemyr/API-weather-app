@@ -49,20 +49,14 @@
         <div>
           <h1 class="city" id="city"></h1>
           <h2 class="date" id="date"></h2>
-          <p class="description" id="description"></p>
-        </div>
-        <div>
-          <ul>
-            <li class="humidity">Humidity: <span id="humidity"></span>%</li>
-            <li class="wind">Wind: <span id="wind"></span>km/h</li>
-          </ul>
         </div>
       </header>
-      <section>
-        <h3>
+      <br />
+      <section class="main-section">
+        <div class="main">
           <img
             src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
-            class="big-icon"
+            class="icon"
             id="big-icon"
             alt="big-weather-icon"
           />
@@ -72,7 +66,14 @@
             <span class="divider">|</span>
             <a href="#" id="fahrenheit-link">°F</a>
           </span>
-        </h3>
+        </div>
+        <div>
+          <ul>
+            <li class="description" id="description"></li>
+            <li class="humidity">Humidity: <span id="humidity"></span>%</li>
+            <li class="wind">Wind: <span id="wind"></span>km/h</li>
+          </ul>
+        </div>
       </section>
       <section class="weather-forecast" id="weather-forecast">
         <div class="row">
@@ -81,7 +82,7 @@
             <br />
             <img
               src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
-              class="small-icon"
+              class="icon"
               id="small-icon"
               alt="small-weather-icon"
             />

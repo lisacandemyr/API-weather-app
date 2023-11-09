@@ -9,16 +9,16 @@
 body {
   background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   font-family: var(--primary-font-family);
-  margin: 100px;
+  margin: 100px auto;
+  max-width: 700px;
   overflow: hidden;
   text-transform: lowercase;
 }
 
 .container {
-  background: rgba(245, 245, 245, 0.5);
+  background: rgba(245, 245, 245, 0.3);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
-  max-width: 700px;
   padding: 35px;
 }
 
@@ -79,27 +79,40 @@ h2 {
   line-height: 15px;
 }
 
+.main-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-section ul {
+  background: rgba(245, 245, 245, 0.3);
+  border-radius: 5px;
+  margin-right: 25px;
+  position: relative;
+  top: 35px;
+}
+
+.main-section li {
+  margin: 0 5px;
+}
+
 .description {
   color: var(--primary-color-light);
   font-size: 20px;
   font-weight: 300;
-  margin-top: 10px;
 }
 
 ul {
-  background: rgba(245, 245, 245, 0.2);
-  border-radius: 5px;
   color: var(--primary-color-light);
+  display: flex;
   font-size: 20px;
   font-weight: 300;
   list-style: none;
-  margin-left: 75px;
   padding: 15px;
   text-align: center;
-  width: 150px;
 }
 
-h3 {
+.main {
   color: var(--primary-color-light);
   font-family: "Oswald", sans-serif;
   font-size: 60px;
@@ -108,7 +121,7 @@ h3 {
   text-transform: uppercase;
 }
 
-.big-icon {
+.icon {
   width: 80px;
   position: relative;
   top: -5px;
